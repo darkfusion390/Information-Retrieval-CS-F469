@@ -1,0 +1,107 @@
+Name:Pranav Panchumarthi
+Student ID: 2017A7PS0153P
+BITS Email: f20170153@pilani.bits-pilani.ac.in
+Wikipedia file used: AE/wiki_20
+
+Answer 1: 
+
+a) Number of unique unigrams:  70400 
+b) The distribution plot is available in token1.png
+c) The required number to cover is:  11266
+
+Answer 2:
+a) Number of unique bigrams:  607350
+b) The distribution plot is available in token2.png
+c) The required number to cover is:  338094
+
+Answer 3:
+a) Number of unique trigrams:  1092841
+b) The distribution plot is available in token3.png
+c) The required number to cover is:  688957
+
+Answer 4:
+a) Unigram analysis after stemming
+  i) Number of unique unigrams:  52754
+  ii) The distribution plot is available in second1.png
+  iii) The required number to cover is:  6006
+
+b) Bigram analysis after stemming
+  i) Number of unique bigrams:  553021
+  ii) The distribution plot is available in second2.png
+  iii) The required number to cover is:  283765
+
+c) Trigram analysis after stemming
+  i) Number of unique trigrams:  1072176
+  ii) The distribution plot is available in second3.png
+  iii) The required number to cover is:  668292
+
+Answer 5:
+a) Unigram analysis after lemmatization
+  i) Number of unique unigrams:  63801
+  ii) The distribution plot is available in third1.png
+  iii) The required number to cover is:  8889
+
+b) Bigram analysis after lemmatization
+  i) Number of unique bigrams:  580372
+  ii) The distribution plot is available in third2.png
+  iii) The required number to cover is:  311116
+
+c) Trigram analysis after lemmatization
+  i) Number of unique trigrams:  1082169
+  ii) The distribution plot is available in third3.png
+  iii) The required number to cover is:  678285
+
+Answer 6:
+
+We observe that the most frequent unigram before stemming or lemmatization has a frequency of 97029, and the second 
+most frequent unigram has a frequency of 43330(compared to 48514, half of 97029), followed by the third most frequent 
+unigram with a frequency of 38185(compared to 32343, a third of 97029), the fourth most frequent unigram having a frequency of 37806
+(compared to 24257). Comparing the obtained results versus the ideal case in which the frequency distribution follows Zipf's Law in an ideal manner, we get
+97029  vs.  97029
+43330       48514             
+38185       32343
+37806	    24257	
+29222       19405
+28763       16171
+16251       13861
+13276       12128
+11595       10781
+
+After stemming and lemmatization, a minor change in the distribution is observed.  Overall, we can say that the frequency distribution follows
+Zipf's law approximately.
+
+
+Answer 7:
+1)The tokenization of words with apostrophes was done incorrectly. For example, the word didn't was tokenized as 'didn' and "'t".
+2)Words with hyphens were considered as two different words and the hyphen was also a different token. For example the word US-based was 
+tokenized as 'US', '-', 'based', when ideally the hyphen makes it a combination or phrase.
+3)Emojis such as :) are tokenized as ':', ')' while some such as xD are tokenized as 'xD'.S
+4)When specifying currency amounts such as $300 it is tokenized as '$' and '300' when ideally it should be only one token. This occurred 
+when using word_tokenize function to tokenize, and can be solved using RegexpTokenizer.
+5)Dates such as '12-12-2020' were tokenized as '12', '-','12', '-', '2020', while the date should actually be considered as one token, and is meaningless 
+otherwise.
+
+Answer 8:
+I have used the tokenize library of nltk(nltk.tokenize) for tokenization, and stem library of nltk(nltk.stem) for stemming and lemmatization.
+In particular for stemming I have used PorterStemmer and WordNetLemmatizer for lemmatization.
+I initially processed the text by removing punctuation from the raw text. The tokenizer I then used, which was nltk.tokenize.RegexpTokenizer,
+tokenizes all alphabet sequences, money expressions, and any other non-whitespace sequences. nltk.stem.PorterStemmer uses the Porter Stemming
+algorithm and uses suffix stripping to produce stems. nltk.stem.WordNetLemmatizer on the other hand, uses a WordNet database to lookup lemmas 
+of words and returns that word if found else leaves it unchanged.
+
+Answer 9:
+I modified the text extracted initially to remove punctuation. The draw back of this was that hyphenated words were considered separate tokens 
+while in a sentence they are actually interrelated as a phrase or such. In the context of numeric values, general integers positive in nature
+are tokenized. However, due to the hyphen representing negative numbers, such numbers are instead tokenized as positive numbers. Floating point numbers will
+also be tokenized as separate integers, as initial text pre-processing involved the removal of periods. Using word_tokenize() would result in
+a currency value to be tokenized as the currency symbol and the number invidually. However, using RegexpTokenizer() we can tokenize it as one token.
+Example 1: 'rock-hard' would be tokenized in the end as 'rock', 'hard.
+Example 2: '435.33' would be tokenized as '435', '33'.
+Example 3: using word_tokenize(), '$300' would be tokenized as '$', '300'.
+Example 4: using RegexpTokenizer(), '$300' would be tokenized as '$300'.
+Example 5: using word_tokenize(), '$198.44' would be tokenized as '$', '198', '44'.
+The same thing with RegexpTokenizer() would be tokenized as '$198', '44'.
+
+
+Answer 10:
+The top 20 bi-grams obtained using the Chi-square test.
