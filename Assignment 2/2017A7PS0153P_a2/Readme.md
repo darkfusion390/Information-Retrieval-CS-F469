@@ -1,9 +1,5 @@
-This Assignment is made by :
-Keshav Sharma		ID : 2017A7PS0140P
-Burhan Boxwalla		ID : 2017A7PS0097P
-Pranav Panchumarthi	ID : 2017A7PS0153P
 
-The Assignment is am implementation of the working Information Retrieval Systems. To run the Vector-Space based Information Retrieval System
+The Assignment is an implementation of the working Information Retrieval Systems. To run the Vector-Space based Information Retrieval System
 
 1. Extract the files index_creation, test_queries.py and wiki_69.txt (or any other corpus) onto the same directory
 
